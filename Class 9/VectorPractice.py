@@ -31,3 +31,5 @@ print(dotProduct)
 
 print("\nThe cross product:")
 print(crossProduct)
+
+# This is a test of git
