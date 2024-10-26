@@ -1,4 +1,4 @@
-from numpy.polynomial import polynomial as ply
+from numpy.polynomial import Polynomial as ply
 import numpy as np
 import matplotlib.pyplot as plt
 
