@@ -3,26 +3,13 @@ import matplotlib.pyplot as plt
 import Funcs as f
 from numpy.polynomial import Polynomial as ply
 
-
-
 fifteenFeet, twentythreeFeet, thirtysevenFeet = f.loadTexts()
 
-
-
-
 thirtysevenPoly1, thirtysevenPoly2, thirtysevenPoly3 = f.fitPolys(thirtysevenFeet)
-
 
 x15 = np.linspace(0,15,1000)
 x23 = np.linspace(0,23,1000)
 x37 = np.linspace(0,37,1000)
-
-
-
-
-
-#releaseangle_deg1,approachangle_deg1,releaseangle_deg2,approachangle_deg2,releaseangle_deg3,approachangle_deg3=f.angles(23,der1,der2,der3)
-#releaseangle_deg1,approachangle_deg1,releaseangle_deg2,approachangle_deg2,releaseangle_deg3,approachangle_deg3=f.angles(37,der1,der2,der3)
 
 print("d   theta       player    y_max      phi")
 
@@ -48,15 +35,21 @@ f.plotPoly(twentythreeY1, twentythreeY2, twentythreeY3, x23)
 
 f.printFormatted(23, releaseangle1, releaseangle2, releaseangle3, playerheight1, playerheight2, playerheight3, max1, max2, max3, approachangle1, approachangle2, approachangle3)
 
+thirtysevenPoly1, thirtysevenPoly2, thirtysevenPoly3 = f.fitPolys(thirtysevenFeet)
+playerheight1, playerheight2, playerheight3= f.playerh(thirtysevenFeet)
+max1, max2, max3 = f.maxh(thirtysevenPoly1, thirtysevenPoly2, thirtysevenPoly3)
+der1, der2, der3 = f.derivatives(thirtysevenPoly1, thirtysevenPoly2, thirtysevenPoly3)
+releaseangle1,approachangle1,releaseangle2,approachangle2,releaseangle3,approachangle3=f.angles(37,der1,der2,der3)
+thirtysevenY1, thirtysevenY2, thirtysevenY3 = f.evalPoly(thirtysevenPoly1, thirtysevenPoly2, thirtysevenPoly3, x37)
+plt.subplot(1,3,3)
+f.plotPoly(thirtysevenY1, thirtysevenY2, thirtysevenY3, x37)
+
+f.printFormatted(37, releaseangle1, releaseangle2, releaseangle3, playerheight1, playerheight2, playerheight3, max1, max2, max3, approachangle1, approachangle2, approachangle3)
 
 
 
 thirtysevenY1, thirtysevenY2, thirtysevenY3 = f.evalPoly(thirtysevenPoly1, thirtysevenPoly2, thirtysevenPoly3, x37)
 
-
-
-plt.subplot(1,3,3)
-f.plotPoly(thirtysevenY1, thirtysevenY2, thirtysevenY3, x37)
 
 plt.show()
 

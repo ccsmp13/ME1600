@@ -47,7 +47,8 @@ def maxh(polynomial1,polynomial2,polynomial3):
     max1 = ply.roots(fp1_der)
     max2 = ply.roots(fp2_der)
     max3 = ply.roots(fp3_der)
-    return max1[0], max2[0], max3[0]
+    
+    return polynomial1(max1[0]), polynomial2(max2[0]), polynomial3(max3[0])
 
 def angles(endPoint,der1,der2,der3):
     der1zero = der1(0)
