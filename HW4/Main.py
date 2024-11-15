@@ -19,10 +19,10 @@ print('**********************************************')
 
 #Initizialize loop variables
 unitSystemSelection = 0
-reply = True
+unitSystem = ''
 
 #Asks user for unit system
-while(reply):
+while(len(unitSystem) == 0):
     
     unitSystemSelection = float(input('Select the unit system to use [1 or 2]: '))
     match unitSystemSelection:

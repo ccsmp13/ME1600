@@ -1,5 +1,5 @@
 import numpy as np
-
+import openpyxl
 def TensileStress(diameter, force):
     # Calculates the tensile strength given diameter and force
     crossSectionArea = np.pi * (diameter / 2)**2
